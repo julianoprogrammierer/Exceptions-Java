@@ -9,11 +9,10 @@ import model.exceptions.DomainException;
 
 public class Program {
   public static void main(String[] args) {
-    Scanner scan = new Scanner(System.in);
     SimpleDateFormat dateFt = new SimpleDateFormat("dd/MM/yyyy");
 
 
-    try {
+    try (Scanner scan = new Scanner(System.in)) {
       System.out.print("Room number: ");
       int numberRoom = scan.nextInt();
       System.out.print("Check-in date (dd/MM/yyyy): ");
@@ -39,12 +38,9 @@ public class Program {
 
     } catch (ParseException e) {
       System.out.println("Invalid date format");
-      
+
     } catch (RuntimeException e) {
       System.out.println("Unexpected error!");
     }
-
-    scan.close();
-
   }
 }
